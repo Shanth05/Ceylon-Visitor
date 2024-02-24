@@ -6,7 +6,6 @@ import Tours from './../pages/Tour';
 import TourDetails from './../pages/TourDetails';
 import Login from './../pages/Login';
 import Register from './../pages/Register';
-import SearchList from './../pages/SearchResults';
 import SearchResults from './../pages/SearchResults';
 
 
