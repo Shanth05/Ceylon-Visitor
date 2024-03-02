@@ -29,10 +29,12 @@ const Home = () => {
           <div className="hero__content">
             <div className="hero__subtitle  d-flex align-items-center ">
               <Subtitle subtitle={'Know Before You Go'}/>
-              <img src={worldImg} alt="" />
+              <img src={worldImg} alt='' />
             </div>
-            <h1>Traveling opens the door to creating <span
-            className="highlight"> memories</span></h1>
+            <h1>
+              Traveling opens the door to creating{" "} 
+              <span className="highlight"> memories</span>
+            </h1>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
               Similique ab temporibus sit illo tempore eveniet! Voluptatibus exercitationem minus nulla quas tempora! Distinctio, natus? Beatae, omnis.
               Reprehenderit placeat quos fugiat dicta?
