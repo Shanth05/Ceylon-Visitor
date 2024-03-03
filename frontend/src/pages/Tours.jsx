@@ -5,7 +5,7 @@ import "../styles/tour.css";
 import tourData from "../assets/data/tours";
 import TourData from "../shared/TourCard";
 import SearchBar from "./../shared/SearchBar";
-import NewsLeetter from "./../shared/Newsletter";
+import NewsLetter from "./../shared/Newsletter";
 
 import { Container, Row, Col } from 'reactstrap';
 import TourCard from '../shared/TourCard';
@@ -59,7 +59,7 @@ const Tours = () => {
                 </Row>
             </Container>
         </section>
-        <NewsLeetter />
+        <NewsLetter />
     </>
   )
 }

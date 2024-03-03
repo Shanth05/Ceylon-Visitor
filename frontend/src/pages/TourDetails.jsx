@@ -4,6 +4,7 @@ import "../styles/tour-details.css"
 import { Container, Row, Col, Form, ListGroup} from 'reactstrap'
 import {useParams} from 'react-router-dom'
 import tourData from '../assets/data/tours'
+import calculateAvgRating from './../utils/avgRating'
 
 
 const TourDetails = () => {
@@ -15,7 +16,12 @@ const TourDetails = () => {
 
 
   //destructure properties from tour object
-  const {photo, title, desc, price, reviews, city, distance, maxGroupSize}= tour
+  const {photo, title, desc, price, address, reviews, city, distance, maxGroupSize}= tour
+
+
+
+  const {totalRating, avgRating}= calculateAvgRating
+  (reviews)
 
   return ( <>
   
@@ -28,6 +34,21 @@ const TourDetails = () => {
 
             <div className='tour__info'>
               <h2>{title}</h2>
+              <div className='d-flex align-center gap-5'>
+
+              <span className='tour__rating d-flex align-items-center gap-1'>
+                <i class="ri-star-fill" style={{'color':"var(--secondary-color)"}}></i>
+                  {calculateAvgRating === 0 ? null : avgRating}
+                  {totalRating === 0 ? (
+                    "Not related" 
+                  ) : (
+                   <span>({reviews.length}) </span>
+                  )}
+              </span>
+
+
+                
+              </div>
             </div>
           </div>
         </Col>
