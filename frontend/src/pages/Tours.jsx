@@ -3,12 +3,11 @@ import CommonSection from "../shared/CommonSection";
 
 import "../styles/tour.css";
 import tourData from "../assets/data/tours";
-import TourData from "../shared/TourCard";
+import TourCard from "../shared/TourCard";
 import SearchBar from "./../shared/SearchBar";
 import NewsLetter from "./../shared/Newsletter";
 
 import { Container, Row, Col } from 'reactstrap';
-import TourCard from '../shared/TourCard';
 
 
 const Tours = () => {
@@ -21,7 +20,7 @@ const Tours = () => {
         const pages =Math.ceil(5/4) //backend data count
         setPageCount(pages);
 
-    }, [])
+    }, [page])
 
   return (
     <>

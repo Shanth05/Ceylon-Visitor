@@ -52,7 +52,7 @@ useEffect(()=>{
             {/*======== logo end =====*/}
 
             {/*======== menu start =====*/}
-            <div className="navigation"></div>
+            <div className="navigation">
               <ul className="menu d-flex align-items-center gap-5">
                 {nav__links.map((item,index)=>(
                   <li className="nav__item" key={index}>
@@ -66,7 +66,9 @@ useEffect(()=>{
                     </NavLink>
                   </li>
                   ))}
-              </ul>
+                </ul>
+              </div>
+
           
                 {/*======== menu end =====*/}
 
