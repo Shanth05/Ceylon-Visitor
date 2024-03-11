@@ -8,15 +8,15 @@ const router = express.Router()
 router.post('/', createTour)
 
 // update  tour
-router.post('/:id', updateTour)
+router.put('/:id', updateTour)
 
 // delete tour
-router.post('/:id', deleteTour)
+router.delete('/:id', deleteTour)
 
 // get single tour
-router.post('/:id', getSingleTour)
+router.get('/:id', getSingleTour)
 
 // create new tour
-router.post('/:id', getAllTour)
+router.get('/', getAllTour)
 
 export default router

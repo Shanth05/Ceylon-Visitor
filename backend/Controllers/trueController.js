@@ -7,7 +7,7 @@ export const createTour = async (req,res) =>{
 
     try {
         const savedTour = await newTour.save()
-
+        
         res
         .status(200)
         .json({
@@ -30,7 +30,7 @@ export const updateTour = async (req,res) => {
 
     try{
         
-        const updatedTour = await Tour.findByIdAnyUpdate(id,{
+        const updatedTour = await Tour.findByIdAndUpdate(id,{
             $set: req.body
         }, {new:true})
 
@@ -54,21 +54,79 @@ export const updateTour = async (req,res) => {
 
 // delete tour
 export const deleteTour = async (req,res) => {
-    try{
+    const id = req.params.id
 
-    } catch (err) {}
+    try{
+        await Tour.findByIdAndDelete(id)
+        
+        res
+        .status(200)
+        .json({
+            success: true,
+            message: "Successfully deleted",
+        })
+
+    } catch (err) {
+        res
+        .status(500)
+        .json({
+            success: false,
+            message: "failed to deleted",
+        })
+    }
 }
 
 // getSingle tour
 export const getSingleTour = async (req,res) => {
-    try{
+    const id = req.params.id
 
-    } catch (err) {}
+    try{
+        const tour = await Tour.findById(id)
+        
+        res
+        .status(200)
+        .json({
+            success: true,
+            message: "Successful",
+            data : tour
+        })
+
+    } catch (err) {
+        res
+        .status(404)
+        .json({
+            success: false,
+            message: "not found",
+        })
+    }
 }
 
 // getAll tour
 export const getAllTour = async (req,res) => {
-    try{
+    
+    //
+    const page = parseInt(req.query.page)
 
-    } catch (err) {}
+
+    try{
+        const tours = await Tour.find({})
+        .skip(page * 8)
+        .limit(8)
+        
+        res
+        .status(200)
+        .json({
+            success: true,
+            message: "Successful",
+            data : tours
+        })
+
+    } catch (err) {
+        res
+        .status(404)
+        .json({
+            success: false,
+            message: "not found",
+        })
+    }
 }
