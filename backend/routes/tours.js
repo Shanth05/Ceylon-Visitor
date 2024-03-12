@@ -1,22 +1,29 @@
 
 import express from 'express'
-import { createTour, deleteTour, getAllTour, getSingleTour, updateTour } from '../Controllers/trueController.js'
+import { createTour, deleteTour, getAllTour, getFeaturedTour, getSingleTour, getTourBySearch, getTourCount, updateTour } from '../Controllers/trueController.js'
+import { verifyAdmin } from '../utils/verifyToken.js'
 
 const router = express.Router()
 
 // create new tour
-router.post('/', createTour)
+router.post('/', verifyAdmin, createTour)
 
 // update  tour
-router.put('/:id', updateTour)
+router.put('/:id', verifyAdmin, updateTour)
 
 // delete tour
-router.delete('/:id', deleteTour)
+router.delete('/:id', verifyAdmin, deleteTour)
 
 // get single tour
 router.get('/:id', getSingleTour)
 
-// create new tour
+// get all tour
 router.get('/', getAllTour)
+
+// get tour by search
+router.get("/search/getTourBySearch", getTourBySearch)
+router.get("/search/getFeaturedTours", getFeaturedTour)
+router.get("/search/getTourCount", getTourCount)
+
 
 export default router
