@@ -31,7 +31,7 @@ const SearchBar = () => {
 
         navigate(`/tours/search/getTourBySearch?city=$
         {location}&distance=${distance}$maxGroupSize=${maxGroupSize}`,
-        {state:result,data})
+        {state:result.data})
 
     
     };
