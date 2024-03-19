@@ -140,7 +140,6 @@ export const getTourBySearch = async(req,res) => {
         const tours = await Tour.find({
             city, distance:{$gte:distance},
             maxGroupSize:{$gte:maxGroupSize} })
-            .populate("reviews")
         
         res
         .status(200)
