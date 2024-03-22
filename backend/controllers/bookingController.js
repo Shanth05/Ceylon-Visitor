@@ -13,7 +13,7 @@ export const createBooking = async (req,res) =>{
         .json({
             success:true, 
             message:'Your tour is booked',
-            data:savedBooking,
+            data: savedBooking,
     })
 
     } catch (err) {
@@ -21,7 +21,7 @@ export const createBooking = async (req,res) =>{
     }
 }
 
-/*
+
 // get single booking
 export const getBooking = async (req,res) => {
     const id = req.params.id
@@ -61,4 +61,3 @@ export const getAllBooking = async (req,res) => {
 
     }
 }
-*/
