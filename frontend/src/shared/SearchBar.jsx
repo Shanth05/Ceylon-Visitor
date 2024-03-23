@@ -31,8 +31,6 @@ const searchHandler = async() =>{
         navigate(`/tours/search/getTourBySearch?city=$
         {location}&distance=${distance}$maxGroupSize=${maxGroupSize}`,
         {state:result.data})
-
-    
     };
 
   return <Col lg='12'>
