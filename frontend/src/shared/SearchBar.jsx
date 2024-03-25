@@ -18,7 +18,7 @@ const searchHandler = async() =>{
     const distance = distanceRef.current.value
     const maxGroupSize = maxGroupSizeRef.current.value
     
-    if (location ==='' || distance==='' || maxGroupSize===''){
+    if (location ==='' || distance ==='' || maxGroupSize ===''){
         return alert("All fields are required!");
     }
 
@@ -27,9 +27,7 @@ const searchHandler = async() =>{
         if(!res.ok) alert('Something went wrong')
 
         const result = await res.json()
-
-        navigate(`/tours/search/getTourBySearch?city=$
-        {location}&distance=${distance}$maxGroupSize=${maxGroupSize}`,
+        navigate(`/tours/search?city=${location}&distance=${distance}&maxGroupSize=${maxGroupSize}`,
         {state:result.data})
     };
 
