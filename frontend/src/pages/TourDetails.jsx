@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useEffect, useRef, useState, useContext} from 'react'
 import "../styles/tour-details.css"
 
 import { Container, Row, Col, Form, ListGroup} from 'reactstrap'
@@ -9,11 +9,13 @@ import Booking from '../components/Booking/Booking'
 import Newsletter from './../shared/Newsletter'
 import useFetch from './../hooks/useFetch'
 import { BASE_URL} from './../utils/config'
+import { AuthContext } from './../context/AuthContext'
 
 const TourDetails = () => {
   const {id} = useParams();
   const reviewMsgRef = useRef('')
   const [tourRating, setTourRating]=useState(null)
+  const {user} = useContext(AuthContext)
 
     //fetch data from database
   const {data:tour, loading, error} =useFetch(`${BASE_URL}/tours/${id}`)
@@ -31,9 +33,40 @@ const TourDetails = () => {
 
 
   // submit request to the server
-  const submitHandler = e =>{
+  const submitHandler = async e =>{
     e.preventDefault();
     const reviewText = reviewMsgRef.current.value;
+
+    try {
+
+      if(!user || user===undefined || user ===null){
+        alert('Please sign in')
+      }
+
+      const reviewObj ={
+        username:user?.username,
+        reviewText,
+        rating:tourRating
+      }
+
+      const res = await fetch('${BASE_URL}/review/${id}',{
+        method:'post',
+        headers:{
+          'content-type':'application/json'
+        },
+        credentials:'include',
+        body:JSON.stringify(reviewObj)
+      })
+
+      const result =await res.json()
+      if (!res.ok) {
+        return alert(result.message)
+      }
+
+      alert(result.message)
+    } catch (err){
+      alert(err.message)
+    }
 
     // call api
   };
@@ -120,30 +153,16 @@ const TourDetails = () => {
                 <div className="w-100">
                   <div className="d-flex align-items-center justify-content-between">
                     <div>
-                      <h5>Shanth</h5>
-                      <p>{new Date('02.02.2021').toLocaleDateString('en-US',options)}</p>
+                      <h5>{review.username}</h5>
+                      <p>{new Date(review.createdAt).toLocaleDateString('en-US',options)}</p>
                     </div>
                     <span className="d-flex align-items-center">
-                        5 <i class="ri-star-s-fill"></i>
+                        {review.rating} <i class="ri-star-s-fill"></i>
                     </span>
                   </div>
-                  <h6>Amazing Tour</h6>
-                </div>
-
-               <img src={avatar} alt="" />
-                <div className="w-100">
-                  <div className="d-flex align-items-center justify-content-between">
-                    <div>
-                      <h5>Shanth</h5>
-                      <p>{new Date('02.02.2021').toLocaleDateString('en-US',options)}</p>
-                    </div>
-                    <span className="d-flex align-items-center">
-                        5 <i class="ri-star-s-fill"></i>
-                    </span>
+                  <h6>{review.reviewText}</h6>
                   </div>
-                  <h6>Amazing Tour</h6>
                 </div>
-              </div>
               ))}              
           </ListGroup>
             </div>
