@@ -2,7 +2,7 @@ import React, {useRef, useEffect, useContext} from 'react'
 import { Container,Row,Button} from 'reactstrap'
 import {NavLink, Link, useNavigate} from 'react-router-dom'
 
-import logo from "../../assets/images/Ceylon.png";
+import logo1 from "../../assets/images/logo1.jpg";
 import "./header.css";
 import { AuthContext } from './../../context/AuthContext'
 
@@ -51,14 +51,21 @@ const Header = () => {
   const toggleMenu = ()=> menuRef.current.classList.toggle('show__menu')
 
   return <header className="header" ref={headerRef}>
+
+    
       <Container>
         <Row>
           <div className="nav__wrapper d-flex align-items-center  justify-content-between">
-            
+  
             {/*======== logo =====*/}
             <div className="logo">
-              <img src={logo} alt=''/>
+              <img src={logo1} alt=''/>
             </div>
+
+            <div className='nav_heading d-flex'> 
+              <h3>Ceylon Visitor</h3>
+            </div>
+
             {/*======== logo end =====*/}
 
             {/*======== menu start =====*/}
@@ -81,8 +88,8 @@ const Header = () => {
 
                 {/*======== menu end =====*/}
 
-                <div className="nav__right d-flex align-items-center gap-4">
-                <div className="nav__btns d-flex align-items-center gap-4">
+                <div className="nav__right d-flex align-items-center gap-5">
+                <div className="nav__btns d-flex align-items-center gap-5">
                   
                   {
                     user? <>

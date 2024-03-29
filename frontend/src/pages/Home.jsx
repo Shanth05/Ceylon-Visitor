@@ -2,9 +2,9 @@ import React from 'react'
 import '../styles/home.css'
 
 import { Container, Row,Col} from 'reactstrap' ;
-import heroImg from '../assets/images/hero-img01.jpg';
-import heroImg02 from '../assets/images/hero-img02.jpg';
-import heroVideo from '../assets/images/hero-video.mp4';
+import sigiriya from '../assets/images/sigiriya.jpg';
+import galle from '../assets/images/galle.jpg';
+import Ceylon from '../assets/images/Ceylon.mp4';
 import worldImg from '../assets/images/world.png';
 import experienceImg from '../assets/images/experience.png';
 
@@ -35,25 +35,24 @@ const Home = () => {
               Traveling opens the door to creating{" "} 
               <span className="highlight"> memories</span>
             </h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-              Similique ab temporibus sit illo tempore eveniet! Voluptatibus exercitationem minus nulla quas tempora! Distinctio, natus? Beatae, omnis.
-              Reprehenderit placeat quos fugiat dicta?
+            <p>Each place, and each smile in Sri Lanka has a story to tell.
+            We have so much to share with you, so come along to our island in paradise! 
             </p>
           </div>
         </Col>
         <Col lg='2'>
             <div className='hero__img-box'> 
-              <img src={heroImg} alt="" />
+              <img src={sigiriya} alt="" />
             </div>
           </Col>
           <Col lg='2'>
             <div className='hero__img-box hero__video-box mt-4'> 
-              <video src={heroVideo} alt="" controls/>
+              <video src={Ceylon} alt="" controls/>
             </div>
           </Col>
           <Col lg='2'>
             <div className='hero__img-box mt-5'> 
-              <img src={heroImg02} alt="" />
+              <img src={galle} alt="" />
             </div>
           </Col>
           <SearchBar />
@@ -96,11 +95,11 @@ const Home = () => {
               <div className="experience__content">
                 <Subtitle subtitle={'Experience'}/>
 
-                <h2>With our all experience <br/> we will serve you</h2>
+                <h2>Plan Your Dream Holiday </h2>
                 <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Each day on this island promises new experiences, discoveries, and life-long memories. 
                 <br/>
-                Quis voluptas, asperiores quaerat excepturi ullam error veritatis illo ab praesentium vitae, sint repellendus rem saepe fugit beatae? Facilis cum voluptate earum.
+                With so much to do,let us help you with these itineraries created just for you! 
                 </p>
               </div>
 
