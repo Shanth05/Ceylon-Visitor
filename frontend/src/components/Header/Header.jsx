@@ -28,7 +28,7 @@ const Header = () => {
   const {user, dispatch} = useContext(AuthContext)
 
   const logout =() => {
-    dispatch({type:'  LOGOUT'})
+    dispatch({type:'LOGOUT'})
     navigate('/')
   }
 
@@ -56,16 +56,19 @@ const Header = () => {
       <Container>
         <Row>
           <div className="nav__wrapper d-flex align-items-center  justify-content-between">
-  
+
+          <div className='nav_heading d-flex'> 
+            <NavLink to="/home" className="nav__link">
+              <h3>Ceylon Visitor</h3>
+            </NavLink>
+          </div>
+
+
+
             {/*======== logo =====*/}
             <div className="logo">
               <img src={logo1} alt=''/>
             </div>
-
-            <div className='nav_heading d-flex'> 
-              <h3>Ceylon Visitor</h3>
-            </div>
-
             {/*======== logo end =====*/}
 
             {/*======== menu start =====*/}
@@ -94,7 +97,7 @@ const Header = () => {
                   {
                     user? <>
                     <h5 className='mb-0'>{user.username}</h5>
-                    <Button className='btn btn-dark' onClick={logout}>LOGOUT</Button>
+                    <Button className='btn btn-dark' onClick={logout}>Logout</Button>
                     </> : <>
                     <Button className="btn secondary__btn"><Link to='/login'>Login</Link></Button> 
                     <Button className="btn primary__btn"><Link to='/register'>Register</Link></Button>     
